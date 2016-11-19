@@ -53,9 +53,9 @@ class paket extends CI_Controller{
      $jumlah = $this->input->post('jumlah');
      $keterangan = $this->input->post('keterangan');
      $stok = $this->input->post('stok');
-     $this->paket->tambah_detail_paket($id_paket,$nama,$harga,$jumlah,$stok,$keterangan);
-     $this->paket->refresh_total($id_paket);
-     header("Location: ".base_url()."index.php/paket/edit_paket/".$this->id_paket);
+     $this->paket->tambah_detail_paket($this->paket->id_paket,$nama,$harga,$jumlah,$stok,$keterangan);
+     $this->paket->refresh_total($this->paket->id_paket);
+     header("Location: ".base_url()."index.php/paket/edit_paket/".$this->paket->id_paket);
   }
   function hapus_barang($id_barang,$id_paket){
     $this->paket->id_paket = $id_paket;
